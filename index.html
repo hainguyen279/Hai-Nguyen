@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA — Phonk Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="bg-wrap">
+    <video id="bgVideo" src="assets/video.mp4" poster="assets/cover.jpg" loop playsinline preload="auto" autoplay muted></video>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <div class="panel">
+    <div class="eyebrow">
+      <span class="dot paused" id="statusDot"></span>
+      <span id="statusText">Đang tạm dừng</span>
+    </div>
+
+    <div class="art-row">
+      <div class="art-frame">
+        <img src="assets/cover.jpg" alt="Ảnh bìa AURA">
+        <div class="art-glow paused" id="artGlow"></div>
+      </div>
+      <div class="meta">
+        <div class="title">AURA — Phonk Mix</div>
+        <div class="artist">1 Hour Viral Phonk · 2026</div>
+        <div class="eq paused" id="eq"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="progress-row">
+      <input type="range" class="progress-bar" id="seek" min="0" max="100" value="0" step="0.1">
+      <div class="time-row">
+        <span id="curTime">00:00</span>
+        <span id="durTime">00:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="icon-btn" id="likeBtn" title="Yêu thích">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+      </button>
+      <button class="icon-btn" id="prevBtn" title="Lùi 10 giây">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+      </button>
+      <button class="play-btn" id="playBtn" title="Phát / Tạm dừng">
+        <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="icon-btn" id="nextBtn" title="Tới 10 giây">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
+      </button>
+      <a class="icon-btn" id="downloadBtn" href="assets/video.mp4" download="AURA-phonk-video.mp4" title="Tải video xuống">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>
+      </a>
+    </div>
+
+    <div class="volume-row">
+      <button class="icon-btn" id="muteBtn" style="padding:0;">
+        <svg id="volIcon" viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>
+      </button>
+      <input type="range" class="volume-bar" id="volume" min="0" max="1" step="0.01" value="0.75">
+    </div>
+  </div>
+
+  <a class="cus-btn" href="score.html">
+    <span class="cus-title">Tính điểm CUS</span>
+    <span class="cus-sub">Bấm để bắt đầu</span>
+  </a>
+
+  <div class="social-row">
+    <a class="social-btn" href="https://www.facebook.com/profile.php?id=61592112710578" target="_blank" rel="noopener" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+    </a>
+    <a class="social-btn" href="https://www.tiktok.com/@thshark279" target="_blank" rel="noopener" title="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.4 4.4 0 0 1-3.1-1.3V15a5.6 5.6 0 1 1-4.8-5.5v2.7a2.9 2.9 0 1 0 2 2.8V2h2.7a4.4 4.4 0 0 0 3.2 3.9v-.1z"/></svg>
+    </a>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <button class="gate-btn" id="gateBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>
+      </button>
+      <span class="gate-label">Nhấn để bật âm thanh</span>
+    </div>
+  </div>
+
+<script src="js/player.js"></script>
+</body>
+</html>
